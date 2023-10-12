@@ -1,0 +1,26 @@
+* {
+  font-style: san-serif;
+}
+
+
+
+.time-scores {
+  display: flex;
+  justify-content: space-between;
+  margin: 25px
+}
+
+
+/* question headers */
+.question {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* quiz content */
+.coding-quiz-text {
+
+
+}
+
