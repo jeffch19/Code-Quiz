@@ -1,3 +1,5 @@
+// Make an array of the questions
+var questions = document.getElementsByClassName("question-container")
 
 // Makes the questions disappear
 

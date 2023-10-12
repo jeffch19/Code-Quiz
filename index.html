@@ -18,14 +18,16 @@
   </div>
 
   <!-- Start Quiz Section -->
+  <div>
     <h1 class="question">Coding Quiz Challenge</h1>
     <p class="coding-quiz-text">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
     <button id="start-btn">Start Quiz</button>
-  
+  </div>
 
   <!-- Quiz Section -->
-<div id="question-container">
+<div class="question-container">
   <!-- question 1 -->
+  <div class="question-box">
   <h2 class="question-text"> Commonly Used data types DO NOT include: </h2> 
   <ul class="choices">
    <li>1. strings</li>
@@ -34,9 +36,11 @@
    <li>4. numbers</li>
   </ul>
 </div>
+</div>
 
 <!-- question 2 -->
-<div id="question-container">
+<div class="question-container">
+  <div class="question-box">
 <h2 class="question-text"> The condition in an if / else statement is enclosed with __________. </h2>
 <ul class="choices">
  <li>1. quotes</li>
@@ -45,9 +49,11 @@
  <li>4. square brackets</li>
 </ul>
 </div>
+</div>
 
 <!-- question 3 -->
-<div id="question-container">
+<div class="question-container">
+  <div class="question-box">
 <h2 class="question-text"> Arrays in JavaScript can be used to store __________. </h2>
 <ul class="choices">
  <li>1. numbers and strings</li>
@@ -55,10 +61,12 @@
  <li>3. booleans</li>
  <li id="correct3">4. all the above</li>
 </ul>
+  </div>
 </div>
 
 <!-- question 4 -->
-<div id="question-container">
+<div class="question-container">
+  <div class="question-box">
 <h2 class="question-text"> String values must be enclosed within __________ when being assigned to variables. </h2>
 <ul class="choices">
  <li>1. commas</li>
@@ -66,10 +74,12 @@
  <li id="correct4">3. quotes</li>
  <li>4. parenthesis</li>
 </ul>
+  </div>
 </div>
 
 <!-- question 5 -->
-<div id="question-container">
+<div class="question-container">
+  <div class="question-box">
 <h2 class="question-text"> A very useful tool used during development and debugging for printing content to the debugger is: </h2>
 <ul class="choices">
  <li>1. JavaScript</li>
@@ -78,9 +88,11 @@
  <li id="correct5">4. console.log</li>
 </ul>
 </div>
+</div>
 
 <!-- question 6 -->
-<div id="question-container">
+<div class="question-container">
+  <div class="question-box">
 <h2 class="question-text"> What is the correct way to declare a variable in JavaScript? </h2>
 <ul class="choices">
  <li>1. var myVariable</li>
@@ -88,10 +100,11 @@
  <li>3. const myVariable</li>
  <li id="correct6">4. All of the above</li>
 </ul>
+  </div>
 </div>
 
 <!-- form section -->
-<div id="result-container">
+<div class="result-container">
   <h3>Quiz Results</h3>
   <p>Your Score: <span id="score">0</span></p>
   <p>High Score: <span id="high-score">0</span></p>

@@ -53,11 +53,15 @@
 }
 
 /* Controls the questions */
-#question-container {
+.question-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+/* .question-box {
+  text-align: left;
+} */
 
 
 /* question 1 text */
