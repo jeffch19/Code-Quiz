@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let correctAnswers = 0;
   let highScore = 0;
 
-  // Define your questions
+  // Define questions
   const questions = [
     {
       text: "Commonly Used data types DO NOT include:",
@@ -39,15 +39,16 @@ document.addEventListener("DOMContentLoaded", function () {
       choices: ["var myVariable", "let myVariable", "const myVariable", "All of the above"],
       correct: 3,
     },
-    // Add more questions here
+    
   ];
+
+  const questionContainer = document.querySelector('.question-container');
+  const questionText = document.querySelector('.question-text');
+  const choices = document.querySelector('.choices');
+  const startContainer = document.querySelector('.start-container');
 
   // Function to display the current question
   function displayQuestion(index) {
-    const questionContainer = document.querySelector('.question-container');
-    const questionText = document.querySelector('.question-text');
-    const choices = document.querySelector('.choices');
-
     if (index < questions.length) {
       questionText.textContent = questions[index].text;
       choices.innerHTML = ""; // Clear previous choices
@@ -82,23 +83,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // save to local storage
   function endQuiz() {
     clearInterval(timerInterval);
     highScore = Math.max(highScore, correctAnswers);
     console.log("Quiz has ended.");
     console.log("Correct Answers: " + correctAnswers);
     console.log("High Score: " + highScore);
-    // You can save the high score to local storage here
+   
   }
 
   // Start the quiz when the "Start Quiz" button is clicked
   document.getElementById("start-btn").addEventListener("click", function () {
     timerInterval = setInterval(updateTimer, 1000);
     displayQuestion(currentQuestionIndex);
+    startContainer.style.display = "none"; 
+    questionContainer.style.display = "block"; 
   });
 });
-
-
 
 
 
