@@ -63,6 +63,7 @@
 .question-box {
   display: flex;
   flex-direction: column;
+   display: none; /*makes questions not visible */
 }
 
 /* changes size of question */
@@ -86,6 +87,13 @@
   flex-direction: column;
 }
 
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+} 
 /* question 1 text */
 /* .question-text {
   display: flex;
