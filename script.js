@@ -39,19 +39,22 @@ document.addEventListener("DOMContentLoaded", function () {
       choices: ["var myVariable", "let myVariable", "const myVariable", "All of the above"],
       correct: 3,
     },
-    
   ];
 
+  // Get elements from the HTML
   const questionContainer = document.querySelector('.question-container');
   const questionText = document.querySelector('.question-text');
   const choices = document.querySelector('.choices');
   const startContainer = document.querySelector('.start-container');
+  const scoreDisplay = document.getElementById("score");
+  const highScoreDisplay = document.getElementById("high-score");
+  const initialsForm = document.getElementById("initials-form");
 
   // Function to display the current question
   function displayQuestion(index) {
     if (index < questions.length) {
       questionText.textContent = questions[index].text;
-      choices.innerHTML = ""; // Clear previous choices
+      choices.innerHTML = ""; 
 
       questions[index].choices.forEach((choice, choiceIndex) => {
         const button = document.createElement("button");
@@ -83,14 +86,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // save to local storage
   function endQuiz() {
     clearInterval(timerInterval);
     highScore = Math.max(highScore, correctAnswers);
+    scoreDisplay.textContent = correctAnswers;
+    highScoreDisplay.textContent = highScore;
     console.log("Quiz has ended.");
     console.log("Correct Answers: " + correctAnswers);
     console.log("High Score: " + highScore);
-   
+
+    // Display the results form
+    questionContainer.style.display = "none";
+    initialsForm.style.display = "block";
   }
 
   // Start the quiz when the "Start Quiz" button is clicked
@@ -99,6 +106,20 @@ document.addEventListener("DOMContentLoaded", function () {
     displayQuestion(currentQuestionIndex);
     startContainer.style.display = "none"; 
     questionContainer.style.display = "block"; 
+  });
+
+  // Handle the form submission to save the score
+  initialsForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Save initials and score to local storage
+    const initialsInput = document.getElementById("initials");
+    const initials = initialsInput.value;
+    localStorage.setItem("playerInitials", initials);
+    localStorage.setItem("playerScore", correctAnswers);
+
+    
+    alert("Score saved!");
   });
 });
 
