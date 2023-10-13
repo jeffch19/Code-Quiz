@@ -59,10 +59,26 @@
   align-items: center;
 }
 
-/* .question-box {
-  text-align: left;
-} */
+/* nested flexbox to align the questions */
+.question-box {
+  display: flex;
+  flex-direction: column;
+}
 
+/* changes size of question */
+.question-text {
+  font-size: 48px;
+}
+
+changes size of answers */
+ .choices button {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.5;
+  
+}
 
 /* question 1 text */
 /* .question-text {
