@@ -1,3 +1,20 @@
+// Timer Starts when start quiz is clicked
+let timeLeft = 75;
+
+function updateTimer() {
+  document.getElementById("timer").textContent = timeLeft;
+}
+
+
+
+
+
+
+
+
+
+
+
 // Make an array of the questions
 var questions = document.getElementsByClassName("question-container")
 
