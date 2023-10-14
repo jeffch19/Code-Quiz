@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const highScoreDisplay = document.getElementById("high-score");
   const initialsForm = document.getElementById("initials-form");
   const resultContainer = document.querySelector('.result-container');
+  const highScoresButton = document.getElementById("high-scores");
 
   // Initially hide the result container
   resultContainer.style.display = "none";
@@ -127,7 +128,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     alert("Score saved!");
   });
+
+  // Display high scores when "View High Scores" button is clicked
+  highScoresButton.addEventListener("click", function () {
+    // Retrieve high scores from local storage
+    const playerInitials = localStorage.getItem("playerInitials");
+    const playerScore = localStorage.getItem("playerScore");
+    
+    if (playerInitials && playerScore) {
+      alert(`High Score: ${playerScore} by ${playerInitials}`);
+    } else {
+      alert("No high scores found.");
+    }
+  });
 });
+
 
 
 
