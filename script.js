@@ -49,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const scoreDisplay = document.getElementById("score");
   const highScoreDisplay = document.getElementById("high-score");
   const initialsForm = document.getElementById("initials-form");
+  const resultContainer = document.querySelector('.result-container');
+
+  // Initially hide the result container
+  resultContainer.style.display = "none";
 
   // Function to display the current question
   function displayQuestion(index) {
@@ -98,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display the results form
     questionContainer.style.display = "none";
     initialsForm.style.display = "block";
+    
+    // Make the result container visible at the end of the quiz
+    resultContainer.style.display = "block";
   }
 
   // Start the quiz when the "Start Quiz" button is clicked
@@ -121,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
     alert("Score saved!");
   });
 });
+
+
 
 
 
