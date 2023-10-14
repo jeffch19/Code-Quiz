@@ -20,6 +20,10 @@
 
 }
 
+#high-scores:hover {
+  cursor: pointer;
+}
+
 
 /* question headers */
 .question {
@@ -54,6 +58,10 @@
   background-color: purple;
   color: white;
   border-radius: 5px;
+}
+
+#start-btn:hover {
+  cursor: pointer;
 }
 
 /* Controls the questions */
