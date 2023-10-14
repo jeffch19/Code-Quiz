@@ -63,7 +63,7 @@
 .question-box {
   display: flex;
   flex-direction: column;
-   display: none; /*makes questions not visible */
+   /* display: none; makes questions not visible */
 }
 
 /* changes size of question */
