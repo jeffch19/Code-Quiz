@@ -43,8 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Get elements from the HTML
   const questionContainer = document.querySelector('.question-container');
-  const questionText = document.querySelector('.question-text');
-  const choices = document.querySelector('.choices');
+  const questionText = questionContainer.querySelector('.question-text');
+  const choices = questionContainer.querySelector('.choices');
   const startContainer = document.querySelector('.start-container');
   const scoreDisplay = document.getElementById("score");
   const highScoreDisplay = document.getElementById("high-score");
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function displayQuestion(index) {
     if (index < questions.length) {
       questionText.textContent = questions[index].text;
-      choices.innerHTML = ""; 
+      choices.innerHTML = "";
 
       questions[index].choices.forEach((choice, choiceIndex) => {
         const button = document.createElement("button");
@@ -104,8 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("start-btn").addEventListener("click", function () {
     timerInterval = setInterval(updateTimer, 1000);
     displayQuestion(currentQuestionIndex);
-    startContainer.style.display = "none"; 
-    questionContainer.style.display = "block"; 
+    startContainer.style.display = "none";
+    questionContainer.style.display = "block";
   });
 
   // Handle the form submission to save the score
@@ -118,10 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("playerInitials", initials);
     localStorage.setItem("playerScore", correctAnswers);
 
-    
     alert("Score saved!");
   });
 });
+
+
 
 
 
