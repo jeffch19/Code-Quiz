@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let timerInterval;
   let currentQuestionIndex = 0;
   let correctAnswers = 0;
-  let highScore = 0;
+  let highScores = [];
 
   // Define questions
   const questions = [
@@ -93,12 +93,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function endQuiz() {
     clearInterval(timerInterval);
-    highScore = Math.max(highScore, correctAnswers);
+
+    if (correctAnswers > 0) {
+      // Add the player's score and initials to the highScores array
+      const playerInitials = localStorage.getItem("playerInitials");
+      highScores.push({ initials: playerInitials, score: correctAnswers });
+
+      // Sort highScores in descending order
+      highScores.sort((a, b) => b.score - a.score);
+
+      // Keep only the top 10 scores
+      highScores = highScores.slice(0, 10);
+    }
+
     scoreDisplay.textContent = correctAnswers;
-    highScoreDisplay.textContent = highScore;
-    console.log("Quiz has ended.");
-    console.log("Correct Answers: " + correctAnswers);
-    console.log("High Score: " + highScore);
+    highScoreDisplay.textContent = highScores.length > 0 ? highScores[0].score : 0;
 
     // Display the results form
     questionContainer.style.display = "none";
@@ -120,11 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
   initialsForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Save initials and score to local storage
+    // Save initials to local storage
     const initialsInput = document.getElementById("initials");
     const initials = initialsInput.value;
     localStorage.setItem("playerInitials", initials);
-    localStorage.setItem("playerScore", correctAnswers);
 
     alert("Score saved!");
   });
@@ -133,16 +141,16 @@ document.addEventListener("DOMContentLoaded", function () {
   highScoresButton.addEventListener("click", function () {
     // Retrieve high scores from local storage
     const playerInitials = localStorage.getItem("playerInitials");
-    const playerScore = localStorage.getItem("playerScore");
-    
-    if (playerInitials && playerScore) {
-      alert(`High Score: ${playerScore} by ${playerInitials}`);
+
+    if (highScores.length > 0) {
+      // Display the top 10 high scores
+      const highScoreList = highScores.slice(0, 10);
+      alert("Top 10 High Scores:\n\n" + highScoreList.map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`).join("\n"));
     } else {
       alert("No high scores found.");
     }
   });
 });
-
 
 
 
