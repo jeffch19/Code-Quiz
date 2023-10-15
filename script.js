@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const button = document.createElement("button");
         button.textContent = `${choiceIndex + 1}. ${choice}`;
         choices.appendChild(button);
+        button.style.cursor = "pointer";
         button.addEventListener("click", function () {
           if (choiceIndex === questions[index].correct) {
             correctAnswers++;
@@ -157,14 +158,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-// Makes the questions disappear
-
-// const questionContainers = document.querySelectorAll('.questionContainer');
-
-// questionContainers.forEach(function(questionContainer) {
-//   questionContainer.addEventListener('click', function() {
-//     questionContainer.style.display = 'none';
-//   });
+// // Handle the form submission to save the score
+// initialsForm.addEventListener("submit", function (event) {
+//   event.preventDefault();
+//   // Save initials to local storage
+//   const initialsInput = document.getElementById("initials");
+//   const initials = initialsInput.value;
+//   var highscores =
+//     JSON.parse(window.localStorage.getItem("highscores")) || [];
+//   // format new score object for current user
+//   var newScore = {
+//     total: correctAnswers,
+//     initials: initials,
+//   };
+//   // save to localstorage
+//   highscores.push(newScore);
+//   window.localStorage.setItem("highscores", JSON.stringify(highscores));
+//   alert("Score saved!");
 // });
+// // Display high scores when "View High Scores" button is clicked
+// highScoresButton.addEventListener("click", function () {
+//   // Retrieve high scores from local storage
+//   var highscores =
+//     JSON.parse(window.localStorage.getItem("highscores")) || [];
+//   console.log(highscores);
+//   for (const score of highscores) {
+//     console.log(score.total);
+//     console.log(score.initials);
+//   }
+//   // if (highscores.length > 0) {
+//   //   // Display the top 10 high scores
+//   //   const highScoreList = highScores.slice(0, 10);
+//   //   alert(
+//   //     "Top 10 High Scores:\n\n" +
+//   //       highScoreList
+//   //         .map(
+//   //           (score, index) =>
+//   //             ${index + 1}. ${score.initials}: ${score.score}
+//   //         )
+//   //         .join("\n")
+//   //   );
+//   // } else {
+//   //   alert("No high scores found.");
+//   // }
+// });
+// }); (edited) 
