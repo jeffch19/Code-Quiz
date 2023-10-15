@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let timerInterval;
   let currentQuestionIndex = 0;
   let correctAnswers = 0;
-  let highScores = [];
+  let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
   // Define questions
   const questions = [
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const resultContainer = document.querySelector('.result-container');
   const highScoresButton = document.getElementById("high-scores");
 
-  // Initially hide the result container
+  // Hide resultContainer initially
   resultContainer.style.display = "none";
 
   // Function to display the current question
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         choices.appendChild(button);
         button.style.cursor = "pointer";
         button.addEventListener("click", function () {
-          if (choiceIndex === questions[index].correct) {
+          if (choiceIndex === questions[currentQuestionIndex].correct) {
             correctAnswers++;
           } else {
             // Display feedback for incorrect answers and deduct time
@@ -113,16 +113,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Keep only the top 10 scores
       highScores = highScores.slice(0, 10);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
     }
 
     scoreDisplay.textContent = correctAnswers;
     highScoreDisplay.textContent = highScores.length > 0 ? highScores[0].score : 0;
 
-    // Display the results form
+    // Hide the question container and show the result container
     questionContainer.style.display = "none";
-    initialsForm.style.display = "block";
-
-    // Make the result container visible at the end of the quiz
     resultContainer.style.display = "block";
   }
 
@@ -149,11 +147,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Display high scores when "View High Scores" button is clicked
   highScoresButton.addEventListener("click", function () {
     // Retrieve high scores from local storage
-    const playerInitials = localStorage.getItem("playerInitials");
-
-    if (highScores.length > 0) {
+    const storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    if (storedHighScores.length > 0) {
       // Display the top 10 high scores
-      const highScoreList = highScores.slice(0, 10);
+      const highScoreList = storedHighScores.slice(0, 10);
       alert("Top 10 High Scores:\n\n" + highScoreList.map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`).join("\n"));
     } else {
       alert("No high scores found.");
@@ -162,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Display feedback to the user
   const feedbackDiv = document.createElement("div");
-  feedbackDiv.style.fontSize = "20px";
+  feedbackDiv.style.fontSize = "16px";
   feedbackDiv.style.color = "gray";
   feedbackDiv.style.display = "none";
   questionContainer.appendChild(feedbackDiv);
