@@ -70,8 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
           if (choiceIndex === questions[index].correct) {
             correctAnswers++;
           } else {
+            // Display feedback for incorrect answers and deduct time
+            feedbackDiv.textContent = "Incorrect! You lose 10 seconds.";
             timeLeft -= timePenalty;
           }
+
+          // Show feedback for a brief moment
+          setTimeout(() => {
+            feedbackDiv.textContent = "";
+          }, 1000);
 
           currentQuestionIndex++;
           displayQuestion(currentQuestionIndex);
@@ -151,14 +158,18 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("No high scores found.");
     }
   });
+
+  // Display feedback to the user
+  const feedbackDiv = document.createElement("div");
+  questionContainer.appendChild(feedbackDiv);
 });
 
 
 
 
 
-
 // // Handle the form submission to save the score
+
 // initialsForm.addEventListener("submit", function (event) {
 //   event.preventDefault();
 //   // Save initials to local storage
@@ -202,4 +213,4 @@ document.addEventListener("DOMContentLoaded", function () {
 //   //   alert("No high scores found.");
 //   // }
 // });
-// }); (edited) 
+// }); 
