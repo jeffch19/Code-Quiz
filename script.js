@@ -166,6 +166,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// starting at line 148
+// Display high scores when “View High Scores” button is clicked
+  // highScoresButton.addEventListener(“click”, function () {
+  //   // Retrieve high scores from local storage
+  //   const playerInitials = localStorage.getItem(“playerInitials”);
+  //   console.log(“highScoreList”, highScores)
+  //   if (highScores.length > 0) {
+  //     // Display the top 10 high scores
+  //     const highScoreList = highScores.slice(0, 10);
+  //     console.log(“highScoreList”, highScoreList)
+  //     alert(“Top 10 High Scores:\n\n” + highScoreList.map((score, index) => ${index + 1}. ${score.initials}: ${score.score}).join(“\n”));
+  //   } else {
+  //     alert(“No high scores found.“);
+  //   }
+  // });
+
+
+
+
 
 
 // // Handle the form submission to save the score
