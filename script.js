@@ -76,9 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           // Show feedback for a brief moment
+          feedbackDiv.style.display = "block";
           setTimeout(() => {
-            feedbackDiv.textContent = "";
-          }, 1000);
+            feedbackDiv.style.display = "none";
+          }, 8000);
 
           currentQuestionIndex++;
           displayQuestion(currentQuestionIndex);
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Display the results form
     questionContainer.style.display = "none";
     initialsForm.style.display = "block";
-    
+
     // Make the result container visible at the end of the quiz
     resultContainer.style.display = "block";
   }
@@ -161,8 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Display feedback to the user
   const feedbackDiv = document.createElement("div");
+  feedbackDiv.style.fontSize = "20px";
+  feedbackDiv.style.color = "gray";
+  feedbackDiv.style.display = "none";
   questionContainer.appendChild(feedbackDiv);
 });
+
 
 
 
