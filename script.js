@@ -67,7 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
         choices.appendChild(button);
         button.style.cursor = "pointer";
         button.addEventListener("click", function () {
-          if (choiceIndex === questions[currentQuestionIndex].correct) {
+          console.log(choiceIndex);
+            console.log( questions[currentQuestionIndex].correct);
+          if (choiceIndex == questions[currentQuestionIndex].correct) {
+            
             correctAnswers++;
           } else {
             // Display feedback for incorrect answers and deduct time
@@ -140,7 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const initialsInput = document.getElementById("initials");
     const initials = initialsInput.value;
     localStorage.setItem("playerInitials", initials);
-
+    const storedHighScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    storedHighScores.push({initials: initials, score: correctAnswers });
+    localStorage.setItem("highScores", JSON.stringify(storedHighScores) );
     alert("Score saved!");
   });
 
