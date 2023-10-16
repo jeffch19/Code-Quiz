@@ -14,7 +14,7 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 Here is a link to take you to the quiz as well as an image preview below : 
 
-![alt text](assets/images/screenshot.png)
+![alt text](./Quiz-image.png)
 
 
 
