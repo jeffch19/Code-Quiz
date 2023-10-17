@@ -12,7 +12,7 @@ What are the steps required to install your project? Provide a step-by-step desc
 
 ## Usage
 
-Here is a link to take you to the quiz as well as an image preview below : 
+Here is a link to take you to the quiz as well as an image preview below : https://jeffch19.github.io/Code-Quiz/ 
 
 ![alt text](./Quiz-image.png)
 
