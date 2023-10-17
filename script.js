@@ -157,10 +157,22 @@ document.addEventListener("DOMContentLoaded", function () {
       // Display the top 10 high scores
       const highScoreList = storedHighScores.slice(0, 10);
       alert("Top 10 High Scores:\n\n" + highScoreList.map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`).join("\n"));
+      displayHighScoresDiv(highScoreList)
     } else {
       alert("No high scores found.");
     }
+    
   });
+
+  function displayHighScoresDiv(highScoreList) {
+    const highScoresDiv = document.getElementById("high-scores-display")
+
+    const highScoresText = highScoreList
+      .map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`)
+      .join("<br>")
+
+    highScoresDiv.innerHTML = "Top 10 High Scores:<br><br>" + highScoresText;
+  }
 
   // Display feedback to the user
   const feedbackDiv = document.createElement("div");
