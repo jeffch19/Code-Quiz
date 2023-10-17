@@ -107,7 +107,12 @@
   /* display: none; */
 } 
 
-
+#high-scores-display {
+  display: flex;
+  justify-content: space-around;
+  line-height: 2;
+  font-size: 16px;
+}
 /* question 1 text */
 /* .question-text {
   display: flex;

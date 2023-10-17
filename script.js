@@ -156,8 +156,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (storedHighScores.length > 0) {
       // Display the top 10 high scores
       const highScoreList = storedHighScores.slice(0, 10);
-      alert("Top 10 High Scores:\n\n" + highScoreList.map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`).join("\n"));
-      displayHighScoresDiv(highScoreList)
+      // alert("Top 10 High Scores:\n\n" + highScoreList.map((score, index) => `${index + 1}. ${score.initials}: ${score.score}`).join("\n"));
+      startContainer.style.display = "none";
+      resultContainer.style.display = "none";
+      displayHighScoresDiv(highScoreList);
     } else {
       alert("No high scores found.");
     }
